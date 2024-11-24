@@ -1,16 +1,16 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
-const Item = ({product}) => {
-    return (
-    <div className="card" style={{width:'18rem', marginTop:10}}>
-    <img src={product.img} className="card-img-top" alt={product.nombre}/>
-    <div className="card-body">
-    <h5 className="card-title">{product.nombre}</h5>
-    <p className="card-text">${product.precio}</p>
-    <a href="#" className="btn btn-primary">Ver más</a>
+const Item = ({producto}) => {
+  const navegar = useNavigate()
+  return (
+    <div>
+        <img src={producto.img} alt={producto.name}/>
+        <p>{producto.name}</p>
+        <p>${producto.price},00</p>
+        <Link className='btn btn-primary' to={`/item/${producto.id}`}>Ver más</Link>
     </div>
-</div>
-)
+  )
 }
 
 export default Item
